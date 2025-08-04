@@ -1,0 +1,83 @@
+type Query {
+  hello: HelloResponse
+
+  products: [Product!]
+  product(id: ID!): Product
+  categories: [Category!]!
+  category(id: ID!): Category!
+}
+
+type HelloResponse {
+  message: String!
+}
+
+type Product {
+  id: ID!
+  title: String!
+  creation_type: String!
+  center_pharmacy_id: Int
+  seller: Int!
+  seller_name: String
+  status: String!
+  not_indexing: Int!
+  low_stock: Int!
+  is_outofstock: Int!
+  can_installment: Int!
+  need_prescription: Int!
+  barcode: String!
+  sku: String
+  verified: String!
+  pharmacy_branch_id: String
+  quantity: Int!
+  max_quantity: Int!
+  main_category_id: Int!
+  category_id: Int!
+  brand_id: Int
+  store_order_item_id: Int!
+  slug: String!
+  images: [String!]!
+  alt_images: [String!]!
+  canonical_tag: String
+  coupon_description: String!
+  views: Int!
+  purchase_count: Int!
+  description: String!
+  highlights_ar: String!
+  highlights_en: String!
+  not_return: Int!
+  price: Int!
+  cost_price: Int!
+  discount: Int
+  bundle_tag: String
+  discount_type: String
+  bigsave_discount: Int!
+  sorting_keyword_en: String
+  sorting_keyword_ar: String
+  start_date: String
+  start_time: String
+  end_date: String
+  end_time: String
+  scheduled_discount_type: String
+  scheduled_discount: String
+  scheduled_bundle_tag: String
+  country_id: Int!
+  created_at: String!
+  updated_at: String!
+  deleted_at: String
+  sorting: String
+  gameball_points: String
+  level_one_id: Int!
+  flow_type: Int!
+  category: Category
+}
+
+type Category {
+  id: ID!
+  title: String!
+  image: String!
+  slug: String!
+  created_at: String!
+  updated_at: String
+  deleted_at: String
+  products: [Product!]
+}
