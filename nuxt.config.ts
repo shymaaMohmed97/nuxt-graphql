@@ -17,14 +17,6 @@ export default defineNuxtConfig({
       }
     },
   },
-  graphqlServer: {
-    codegen: {
-      scalars: {
-        ID: 'string',
-        DateTime: 'string',
-      },
-    }
-  },
   runtimeConfig: {
     graphqlServer: {
       url: '/api/graphql',
