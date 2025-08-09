@@ -40,5 +40,13 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       ],
     }
-  }
+  },
+  pages: { pattern: ['**/*.vue', '!**/components/**'] },
+  components: [
+    '~/components', {
+      path: '~/pages',
+      pattern: '**/components/**',
+      pathPrefix: false
+    }
+  ],
 })

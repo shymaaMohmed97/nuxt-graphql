@@ -1,8 +1,8 @@
 query getCategories {
   categories {
     id
-    title
-    image
+    title_en
+    now_image
     slug
   }
 }

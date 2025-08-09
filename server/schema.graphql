@@ -5,24 +5,107 @@ type Query {
   product(id: ID!): Product
   categories: [Category!]!
   category(id: ID!): Category!
+  users: [User!]!
+  user(id: ID!): User!
+}
+
+type Mutation {
+  createReview(input: CreateReviewInput!): Review!
+}
+input CreateReviewInput {
+  user_id: Int!
+  product_id: Int!
+  comment: String!
+}
+
+type Review {
+  id: ID!
+  user_id: Int!
+  product_id: Int!
+  comment: String!
+  user: User!
 }
 
 type HelloResponse {
   message: String!
 }
 
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  country_code: String!
+  phone: String!
+  gender: String!
+  birthday: String
+  is_active: Int!
+  is_verified: Int!
+  register_way: Int!
+  country_id: Int!
+  current_country_id: Int!
+  city_id: Int
+  social_id: String
+  social_type: String
+  social_image: String
+  image: String
+  fresh_chat_id: String
+  fresh_chat_id_sa: String
+  credit_code: String
+  invited_user_id: Int
+  card_last_four: String
+  card_brand: String
+  meta_data: String
+  public_key: String
+  type: String!
+  stripe_id: String
+  pm_type: String
+  pm_last_four: String
+  trial_ends_at: String
+  created_at: String!
+  wallet: [Wallet!]!
+  addresses: [Address!]!
+}
+
+type Wallet {
+  id: ID!
+  user_id: Int!
+  balance: Int!
+  status: Int!
+  created_at: String!
+}
+
+type Address {
+  id: ID!
+  verified: Int!
+  selected: Int!
+  title: String!
+  address: String!
+  building_no: String!
+  floor_no: String!
+  apartment_no: String!
+  landmark: String!
+  longitude: Float!
+  latitude: Float!
+  user_id: Int!
+  city_id: Int!
+  g_city_id: Int!
+  area_id: Int!
+  g_area_id: Int!
+  country_id: Int!
+  state_id: Int!
+  zone_id: Int!
+  formatted_address: String!
+}
+
 type Product {
   id: ID!
   title: String!
-  creation_type: String!
   center_pharmacy_id: Int
   seller: Int!
   seller_name: String
   status: String!
-  not_indexing: Int!
   low_stock: Int!
   is_outofstock: Int!
-  can_installment: Int!
   need_prescription: Int!
   barcode: String!
   sku: String
@@ -35,49 +118,52 @@ type Product {
   brand_id: Int
   store_order_item_id: Int!
   slug: String!
-  images: [String!]!
-  alt_images: [String!]!
+  image: String!
+  alt_image: String!
   canonical_tag: String
   coupon_description: String!
   views: Int!
   purchase_count: Int!
   description: String!
-  highlights_ar: String!
-  highlights_en: String!
+  highlights_ar: String
+  highlights_en: String
   not_return: Int!
-  price: Int!
+  price: Float!
   cost_price: Int!
   discount: Int
   bundle_tag: String
   discount_type: String
   bigsave_discount: Int!
-  sorting_keyword_en: String
-  sorting_keyword_ar: String
-  start_date: String
-  start_time: String
-  end_date: String
-  end_time: String
-  scheduled_discount_type: String
-  scheduled_discount: String
-  scheduled_bundle_tag: String
   country_id: Int!
-  created_at: String!
-  updated_at: String!
-  deleted_at: String
   sorting: String
   gameball_points: String
   level_one_id: Int!
   flow_type: Int!
   category: Category
+  reviews: [Review!]
 }
 
 type Category {
   id: ID!
-  title: String!
-  image: String!
+  level: Int!
+  parent_id: Int
+  title_en: String!
+  title_ar: String!
   slug: String!
-  created_at: String!
-  updated_at: String
-  deleted_at: String
-  products: [Product!]
+  meta_keyword_en: String!
+  meta_keyword_ar: String!
+  meta_description_en: String!
+  meta_description_ar: String!
+  waffar_image: String!
+  now_image: String!
+  media_type: String!
+  banner: Int!
+  banner_img_en: String
+  banner_link_en: String
+  banner_img_ar: String
+  banner_link_ar: String
+  show: Int!
+  meta_description_waffar_en: String
+  meta_description_waffar_ar: String
+  products: [Product!]!
 }

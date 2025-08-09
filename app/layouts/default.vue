@@ -3,7 +3,7 @@
         <aside class="hidden w-64 h-full flex-col gap-6 overflow-y-auto border-e border-gray-200 p-4 md:flex relative">
             <UNavigationMenu orientation="vertical" :items="items" />
         </aside>
-        <div class="flex-1 overflow-auto bg-gray-50">
+        <div class="flex-1 overflow-auto bg-[#F3F6F9]">
           <slot />
         </div>
     </div>
@@ -19,19 +19,9 @@ const items = ref<NavigationMenuItem[][]>([
       type: 'label'
     },
     {
-      label: 'Home',
-      icon: 'i-lucide-home',
-      to: '/',
-    },
-    {
-      label: 'Categories',
-      icon: 'i-lucide-list-ordered',
-      to: '/categories',
-    },
-    {
-      label: 'Products',
-      icon: 'i-lucide-shopping-cart',
-      to: '/products',
+      label: 'Users',
+      icon: 'i-lucide-users',
+      to: '/dashboard/users',
     },
   ],
 ])

@@ -1,0 +1,15 @@
+query Category($id: ID!) {
+  category(id: $id) {
+    id
+    title_en
+    banner_img_en
+    banner_link_en
+    products {
+      id
+      title
+      price
+      image
+      alt_image
+    }
+  }
+}

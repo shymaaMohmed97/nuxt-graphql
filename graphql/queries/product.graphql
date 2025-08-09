@@ -1,0 +1,29 @@
+query Product($id: ID!) {
+  product(id: $id) {
+    id
+    title
+    price
+    image
+    alt_image
+    description
+    highlights_ar
+    need_prescription
+    low_stock
+    seller_name
+    not_return
+    category {
+      id
+      title_en
+    }
+    reviews {
+      id
+      user_id
+      product_id
+      comment
+      user {
+        id
+        name
+      }
+    }
+  }
+}

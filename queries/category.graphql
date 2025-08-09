@@ -1,6 +1,0 @@
-query Category($id: ID!) {
-  category(id: $id) {
-    id
-    title
-  }
-}
