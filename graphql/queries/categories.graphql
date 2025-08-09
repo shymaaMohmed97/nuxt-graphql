@@ -1,8 +1,7 @@
+#import "../fragments/categoryFields.graphql"
 query getCategories {
   categories {
-    id
-    title_en
+    ...CategoryFields
     now_image
-    slug
   }
 }

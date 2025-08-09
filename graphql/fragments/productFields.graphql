@@ -1,0 +1,9 @@
+fragment ProductFields on Product {
+  id
+  title
+  price
+  image
+  alt_image
+  need_prescription
+  low_stock
+}

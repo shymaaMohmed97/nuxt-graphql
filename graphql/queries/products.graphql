@@ -1,11 +1,6 @@
+#import "../fragments/productFields.graphql"
 query Products {
   products {
-    id
-    title
-    price
-    image
-    alt_image
-    need_prescription
-    low_stock
+    ...ProductFields
   }
 }

@@ -214,6 +214,12 @@ export type Wallet = {
   user_id: Scalars['Int']['output'];
 };
 
+export type CategoryFieldsFragment = { __typename?: 'Category', id: string, title_en: string };
+
+export type ProductFieldsFragment = { __typename?: 'Product', id: string, title: string, price: number, image: string, alt_image: string, need_prescription: number, low_stock: number };
+
+export type UserFieldsFragment = { __typename?: 'User', id: string, name: string, email: string, phone: string, is_active: number };
+
 export type CreateReviewMutationVariables = Exact<{
   input: CreateReviewInput;
 }>;
@@ -229,21 +235,21 @@ export type GetHelloQuery = { __typename?: 'Query', hello?: { __typename?: 'Hell
 export type GetCategoriesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetCategoriesQuery = { __typename?: 'Query', categories: Array<{ __typename?: 'Category', id: string, title_en: string, now_image: string, slug: string }> };
+export type GetCategoriesQuery = { __typename?: 'Query', categories: Array<{ __typename?: 'Category', now_image: string, id: string, title_en: string }> };
 
 export type CategoryQueryVariables = Exact<{
   id: Scalars['ID']['input'];
 }>;
 
 
-export type CategoryQuery = { __typename?: 'Query', category: { __typename?: 'Category', id: string, title_en: string, banner_img_en?: string | null, banner_link_en?: string | null, products: Array<{ __typename?: 'Product', id: string, title: string, price: number, image: string, alt_image: string }> } };
+export type CategoryQuery = { __typename?: 'Query', category: { __typename?: 'Category', banner_img_en?: string | null, banner_link_en?: string | null, id: string, title_en: string, products: Array<{ __typename?: 'Product', id: string, title: string, price: number, image: string, alt_image: string }> } };
 
 export type ProductQueryVariables = Exact<{
   id: Scalars['ID']['input'];
 }>;
 
 
-export type ProductQuery = { __typename?: 'Query', product?: { __typename?: 'Product', id: string, title: string, price: number, image: string, alt_image: string, description: string, highlights_ar?: string | null, need_prescription: number, low_stock: number, seller_name?: string | null, not_return: number, category?: { __typename?: 'Category', id: string, title_en: string } | null, reviews?: Array<{ __typename?: 'Review', id: string, user_id: number, product_id: number, comment: string, user: { __typename?: 'User', id: string, name: string } }> | null } | null };
+export type ProductQuery = { __typename?: 'Query', product?: { __typename?: 'Product', description: string, highlights_ar?: string | null, seller_name?: string | null, not_return: number, id: string, title: string, price: number, image: string, alt_image: string, need_prescription: number, low_stock: number, category?: { __typename?: 'Category', id: string, title_en: string } | null, reviews?: Array<{ __typename?: 'Review', id: string, user_id: number, product_id: number, comment: string, user: { __typename?: 'User', id: string, name: string } }> | null } | null };
 
 export type ProductsQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -255,12 +261,12 @@ export type UserQueryVariables = Exact<{
 }>;
 
 
-export type UserQuery = { __typename?: 'Query', user: { __typename?: 'User', id: string, name: string, email: string, phone: string, country_code: string, gender: string, birthday?: string | null, is_active: number, is_verified: number, wallet: Array<{ __typename?: 'Wallet', id: string, balance: number, status: number, created_at: string }>, addresses: Array<{ __typename?: 'Address', id: string, verified: number, selected: number, title: string, address: string, building_no: string, floor_no: string, apartment_no: string, landmark: string, longitude: number, latitude: number, formatted_address: string }> } };
+export type UserQuery = { __typename?: 'Query', user: { __typename?: 'User', country_code: string, gender: string, birthday?: string | null, is_verified: number, id: string, name: string, email: string, phone: string, is_active: number, wallet: Array<{ __typename?: 'Wallet', id: string, balance: number, status: number, created_at: string }>, addresses: Array<{ __typename?: 'Address', id: string, verified: number, selected: number, title: string, address: string, building_no: string, floor_no: string, apartment_no: string, landmark: string, longitude: number, latitude: number, formatted_address: string }> } };
 
 export type UsersQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type UsersQuery = { __typename?: 'Query', users: Array<{ __typename?: 'User', id: string, name: string, email: string, phone: string, is_active: number, created_at: string }> };
+export type UsersQuery = { __typename?: 'Query', users: Array<{ __typename?: 'User', created_at: string, id: string, name: string, email: string, phone: string, is_active: number }> };
 
 export type AddressKeySpecifier = ('address' | 'apartment_no' | 'area_id' | 'building_no' | 'city_id' | 'country_id' | 'floor_no' | 'formatted_address' | 'g_area_id' | 'g_city_id' | 'id' | 'landmark' | 'latitude' | 'longitude' | 'selected' | 'state_id' | 'title' | 'user_id' | 'verified' | 'zone_id' | AddressKeySpecifier)[];
 export type AddressFieldPolicy = {

@@ -1,10 +1,7 @@
+#import "../fragments/userFields.graphql"
 query Users {
   users {
-    id
-    name
-    email
-    phone
-    is_active
+    ...UserFields,
     created_at
   }
 }

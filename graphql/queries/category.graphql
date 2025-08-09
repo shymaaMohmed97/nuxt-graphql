@@ -1,7 +1,7 @@
+#import "../fragments/categoryFields.graphql"
 query Category($id: ID!) {
   category(id: $id) {
-    id
-    title_en
+    ...CategoryFields
     banner_img_en
     banner_link_en
     products {
