@@ -55,11 +55,7 @@ export const resolvers: Resolvers = {
   },
   Product: {
     category: (parent: Product) => {
-      const mockParent = parent as unknown as Product;
-      const found = categories.find((c) => c.id === mockParent.level_one_id);
-      if (!found) {
-        throw new Error(`Category not found for product ${mockParent.id}`);
-      }
+      const found = categories.find((c) => c.id === parent.level_one_id);
       return found as unknown as Category;
     },
     reviews: (parent: Product) =>
