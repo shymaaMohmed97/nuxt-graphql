@@ -28,5 +28,5 @@ definePageMeta({
   layout: "plain",
 });
 const { id } = useRoute().params;
-const { result } = useQuery<CategoryQuery>(Category, { id: id as string });
+const { result } = useQuery<CategoryQuery>(Category, { id });
 </script>

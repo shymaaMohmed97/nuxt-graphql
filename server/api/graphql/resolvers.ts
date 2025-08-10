@@ -17,6 +17,7 @@ import type {
 
 export const resolvers: Resolvers = {
   Query: {
+    // Root resolvers
     hello: () => ({
       message: "Hello from GraphQL!",
     }),
@@ -54,6 +55,7 @@ export const resolvers: Resolvers = {
     },
   },
   Product: {
+    // fields resolvers
     category: (parent: Product) => {
       const found = categories.find((c) => c.id === parent.level_one_id);
       return found as unknown as Category;
@@ -70,12 +72,14 @@ export const resolvers: Resolvers = {
         }) as unknown as Review[],
   },
   Category: {
+    // fields resolvers
     products: (parent: Category) =>
       products.filter(
         (p) => p.level_one_id === parseInt(parent.id)
       ) as unknown as Product[],
   },
   User: {
+    // fields resolvers
     addresses: (parent: User) =>
       addresses.filter(
         (a) => a.user_id === parseInt(parent.id)

@@ -78,6 +78,6 @@ definePageMeta({
 });
 const { id } = useRoute().params;
 const { result, refetch } = useQuery<ProductQuery>(Product, {
-  id: id as string,
+  id,
 });
 </script>
